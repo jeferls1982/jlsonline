@@ -12,10 +12,29 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::prefix('cardapio')->group(function () {
+    Route::resource('categorias', 'cardapio\api\CategoriaController');
+    Route::resource('ingredientes', 'cardapio\api\IngredienteController');
+});
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

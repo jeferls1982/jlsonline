@@ -14,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('cardapio')->group(function () {
+    Route::resource('categorias', 'cardapio\api\CategoriaController');
+    Route::resource('ingredientes', 'cardapio\api\IngredienteController');
+});
+
+
+
+
+
+
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
