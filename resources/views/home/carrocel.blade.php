@@ -2,7 +2,7 @@
     <div class="carousel-inner" style="">
         <div class="carousel-item active">
 
-            <img src="{{ url("/storage/home/comidas.jpg") }}" class="d-block imgCarrocel" alt="..." >
+            <img src="https://www.dicasdemulher.com.br/wp-content/uploads/2018/12/comida-congelada-como-fazer-00.jpg" class="d-block imgCarrocel" alt="..." >
             <a href="/cardapio" class=" stretched-link"></a>
             <div class="carousel-caption captionCarrocel lead">
                 <h5>Cardápios</h5>
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{ url("/storage/home/financas.jpg") }}" class="d-block  imgCarrocel" alt="...">
+            <img src="https://i2.wp.com/vidadehomeoffice.com/wp-content/uploads/2019/02/como-organizar-financas-pessoais-sendo-freelancer.png?fit=1400%2C933&ssl=1" class="d-block  imgCarrocel" alt="...">
             <a href="/financeiro" class=" stretched-link"></a>
             <div class="carousel-caption captionCarrocel lead">
                 <h5>Finanças</h5>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{ url("/storage/home/loterias.jpeg") }}" class="d-block imgCarrocel" alt="...">
+            <img src="https://www.jornaltropadeelite.com.br/wp-content/uploads/2019/01/Quais-loterias-correm-hoje.jpg" class="d-block imgCarrocel" alt="...">
             <a href="/loterias" class=" stretched-link"></a>
             <div class="carousel-caption captionCarrocel lead">
                 <h5>Loterias</h5>
