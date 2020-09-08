@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix('cardapio')->group(function () {
+    Route::get('', function(){    
+        return view('cardapio.home');
+    });
+    
     Route::resource('categorias', 'cardapio\api\CategoriaController');
     Route::resource('ingredientes', 'cardapio\api\IngredienteController');
 });
@@ -36,6 +40,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/financeiro', function (){
+    return view('financeiro.home');
+});

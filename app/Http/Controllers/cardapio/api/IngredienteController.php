@@ -5,38 +5,36 @@ namespace App\Http\Controllers\cardapio\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
-class IngredienteController extends Controller
-{
+use App\models\cardapio\Ingrediente;
+
+class IngredienteController extends Controller {
+
+    private $ingrediente;
+
+    function __construct(Ingrediente $ingrediente) {
+        $this->ingrediente = $ingrediente;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
-    {
-        
-        dd('controller ingredientes');
+    public function index(User $user) {
+        $ingredientes = $this->ingrediente->with('categoria')->where('user_id', auth()->id())->get();
+        return response()->json($ingredientes);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $ingrediente = $this->ingrediente->create($request->all());
+        return response()->json($ingrediente);
     }
 
     /**
@@ -45,9 +43,9 @@ class IngredienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id) {
+        $ingrediente = $this->ingrediente->with('categoria')->find($id);
+        return response()->json($ingrediente);
     }
 
     /**
@@ -56,8 +54,7 @@ class IngredienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -68,9 +65,10 @@ class IngredienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        $ingrediente = $this->ingrediente->find($id);
+        $ingrediente->update($request->all());
+        return response()->json($ingrediente);
     }
 
     /**
@@ -79,8 +77,9 @@ class IngredienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+         $this->ingrediente->destroy($id);
+        return response()->json(['success' => 'Deletado com sucesso']);
     }
+
 }

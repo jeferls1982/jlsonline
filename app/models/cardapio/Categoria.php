@@ -7,14 +7,14 @@ use App\User;
 
 class Categoria extends Model
 {
-    protected $table ='categoria';
+    
     public $timestamps = false;
     protected $fillable = ['nome','user_id'];
     
-    
-    public function user(){
-        return $this->belongsTo('User');
+    public function ingredientes(){
+        return $this->hasMany(Ingrediente::class);
     }
+    
     
     
 }
